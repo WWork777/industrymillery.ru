@@ -1,0 +1,123 @@
+.news {
+  background: rgba(0, 150, 208, 1);
+  border-radius: 16px;
+  height: 260px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30px;
+  position: relative;
+  justify-content: space-between; /* Для корректного выравнивания элементов */
+  margin-bottom: 100px;
+
+  .news-title {
+    font-size: 65px;
+    color: #fff;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  a span {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.6s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 6px;
+      background-color: currentColor;
+      transform: translateX(0);
+      pointer-events: none; /* чтобы линия не мешала клику */
+    }
+
+    &:hover::after {
+      animation: underline-slide 0.3s ease forwards;
+    }
+  }
+
+  /* 🔄 Анимация “проезда” */
+  @keyframes underline-slide {
+    0% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(100%);
+    }
+    41% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Стили для картинки внутри блока .news */
+  img {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 400px;
+    max-width: 50%;
+    object-fit: contain; /* Делаем изображение пропорциональным */
+    object-position: right center;
+  }
+}
+
+/* ====== мобильный адаптив ====== */
+@media (max-width: 1700px) {
+  .news-title {
+    font-size: 60px !important;
+  }
+}
+
+@media (max-width: 1500px) {
+  .news-title {
+    font-size: 50px !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  .news-title {
+    font-size: 40px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .news {
+    margin-bottom: 50px;
+    // background-image: url("/images/News/M.png");
+    // background-size: cover;  /* Заполнение фона картинкой */
+    // background-position: center;  /* Центрируем картинку по центру блока */
+    // background-repeat: no-repeat; /* Чтобы картинка не повторялась */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 350px;  /* Устанавливаем фиксированную высоту для мобильной версии */
+    padding: 30px 20px;
+
+    .news-title {
+    font-size: 35px !important;
+    text-align: center;
+    color: white;  /* Сделаем текст видимым на фоне картинки */
+  }
+
+  img {
+    display: none; /* Убираем изображение внутри блока */
+  }
+  }
+
+  
+}

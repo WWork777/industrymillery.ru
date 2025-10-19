@@ -1,5 +1,19 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+import Header from "@/components/Layout/Header/Header";
+import Footer from "@/components/Layout/Footer/Footer";
+
+
+const Avenir = localFont({
+  src: [
+    {
+      path: "./fonts/Avenir-Next-reg.ttf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +33,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+
+      
+      <head>
+        <meta />
+      </head>
+
+
+      <body className={`${geistSans.variable} ${geistMono.variable} ${Avenir.variable}`}>
+        <Header/>
+        <div className="page-content">
+          {children}
+        </div>
+        
+        <Footer/>
       </body>
     </html>
   );

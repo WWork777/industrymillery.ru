@@ -1,0 +1,215 @@
+/* ===== Theme ===== */
+$primary: #2b6fff; // акцент (синий)
+$muted:   #6b7280;
+$line:    #e7e9ee;
+$panel:   #f7f8fb;
+$radius:  14px;
+
+/* ===== Catalog root ===== */
+.catalog-products {
+  font-family: "Avenir";
+
+  &__title {
+    margin: 140px 0 18px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #000;
+  }
+
+  /* ===== Filters ===== */
+  &__filters {
+    background: $panel;
+    border: 1px solid $line;
+    border-radius: $radius;
+    padding: 14px;
+    margin-bottom: 22px;
+
+    .filters-row {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: end;
+    }
+
+    .filters-control {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: "Avenir";
+
+      label {
+        font-size: 13px;
+        color: #000;
+      }
+
+      select,
+      input {
+        font-family: "Avenir";
+        height: 44px;
+        padding: 0 12px;
+        border: 1px solid $line;
+        border-radius: 10px;
+        background: #fff;
+        color: #000;
+        font-size: 14px;
+        transition: border-color .2s ease, box-shadow .2s ease;
+
+        &:focus {
+          border-color: lighten($primary, 22%);
+          box-shadow: 0 0 0 3px rgba($primary, .12);
+          outline: none;
+        }
+
+        &::placeholder {
+          color: $muted;
+          opacity: 1;
+        }
+      }
+    }
+
+    .filters-range {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .filters-input-half { max-width: 46%; }
+      .filters-dash       { color: #000; user-select: none; }
+    }
+
+    .filters-reset {
+      font-family: "Avenir";
+      grid-column: span 4;
+      height: 44px;
+      border: 1px solid $line;
+      border-radius: 10px;
+      background: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: box-shadow .2s ease, transform .05s ease;
+
+      &:hover  { box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+      &:active { transform: translateY(1px); }
+    }
+
+    .filters-count {
+      margin-top: 8px;
+      font-size: 14px;
+      color: $muted;
+
+      b { color: $primary; }
+    }
+  }
+
+  /* ===== Grid (база) ===== */
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* базово 4 колонки для ≥1280px */
+    gap: 18px;
+  }
+
+  &__link { display: block; color: inherit; text-decoration: none; }
+}
+
+/* ===== Product card (НЕ МЕНЯЛ) ===== */
+.product {
+  position: relative;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: $radius;
+  transition: transform .25s ease;
+
+  &:hover { transform: translateY(-4px); }
+}
+
+.product__img {
+  display: block;
+  height: 295px !important;
+  width: auto;
+  object-fit: cover;
+  border-radius: 14px; /* вернуть радиус */
+}
+
+.product__name {
+  margin: 10px 10px 6px;
+  font-size: clamp(16px, 1.2vw, 21px);
+  line-height: 1.3;
+  color: #000;
+}
+
+.product__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 0 10px 12px;
+
+  .product__price   { font-weight: 700; color: $primary; }
+  .product__purpose {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba($primary, .08);
+    color: $primary;
+    font-size: 12px;
+    text-transform: lowercase;
+  }
+}
+
+/* ===== Responsive: фильтры (твои) ===== */
+@media (max-width: 1100px) {
+  .catalog-products__filters .filters-control { grid-column: span 6; }
+  .catalog-products__filters .filters-reset   { grid-column: span 6; }
+}
+
+@media (max-width: 640px) {
+  .catalog-products                        { padding: 56px 3%; }
+  .catalog-products__filters .filters-row  { grid-template-columns: repeat(6, 1fr); }
+  .catalog-products__filters .filters-control,
+  .catalog-products__filters .filters-reset { grid-column: span 6; }
+  .catalog-products__filters .filters-range { max-width: 100%; }
+}
+
+/* ===== Responsive: сетка каталога ===== */
+
+/* Крупные экраны — FHD (≥1920px): 5 колонок, чуть больше зазор и внутренние поля */
+@media (min-width: 1920px) {
+  .catalog-products__grid { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .catalog-products { padding-left: max(4%, 48px); padding-right: max(4%, 48px); }
+}
+
+/* 2K/QHD (≥2560px): 6 колонок */
+@media (min-width: 2560px) {
+  .catalog-products__grid { grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .catalog-products { padding-left: max(6%, 64px); padding-right: max(6%, 64px); }
+}
+
+/* 4K (≥3840px): 8 колонок */
+@media (min-width: 3840px) {
+  .catalog-products__grid { grid-template-columns: repeat(8, 1fr); gap: 24px; }
+  .catalog-products { padding-left: max(8%, 80px); padding-right: max(8%, 80px); }
+}
+
+/* Ниже десктопа */
+/* Узкий десктоп / планшет-гориз. (≤1279px): 3 колонки */
+@media (max-width: 1279px) {
+  .catalog-products__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Планшет-вертик. (≤1023px): 2 колонки */
+@media (max-width: 1023px) {
+  .catalog-products__grid { grid-template-columns: repeat(2, 1fr); }
+  .product__img{margin: auto;}
+  .product{text-align: center;}
+  .product__meta{justify-content: center;}
+  // .filters-input-half{
+  //   max-width: 0;
+  // }
+}
+
+/* Мобилы (≤599px): 1 колонка, компактные отступы */
+@media (max-width: 599px) {
+  .catalog-products__grid { grid-template-columns: 1fr; gap: 16px; }
+  .catalog-products { padding: 56px 3%; }
+  .product__img{width: 100%; height: auto !important;}
+}

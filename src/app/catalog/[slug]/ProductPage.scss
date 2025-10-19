@@ -1,0 +1,232 @@
+/* ===== Theme (согласовано с каталогом) ===== */
+$primary: #2b6fff; // акцент (синий)
+$muted:   #6b7280;
+$line:    #e7e9ee;
+$panel:   #f7f8fb;
+$radius:  14px;
+
+.product-page {
+  font-family: "Avenir" !important;
+  background: #fff;
+  margin-top: 140px;
+
+  
+
+  &__breadcrumbs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: $muted;
+    margin-bottom: 16px;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 32px;
+  }
+
+  &__media {
+    position: relative;
+    background: #f2f4f8;
+    border-radius: $radius;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+  }
+
+  &__purpose {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: rgba($primary, .1);
+    color: $primary;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: lowercase;
+    backdrop-filter: blur(4px);
+  }
+
+  &__info { padding: 6px 0; }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: clamp(26px, 2.6vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0e1116;
+  }
+
+  &__short {
+    margin: 0 0 14px;
+    color: $muted;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  &__price-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 6px 0 16px;
+  }
+
+  &__price {
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 800;
+    color: #0e1116;
+  }
+
+  &__buy {
+    font-family: "Avenir" !important;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 12px;
+    border: none;
+    background: $primary;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+
+    &:hover  { transform: translateY(-2px); box-shadow: 0 8px 18px rgba($primary, .25); }
+    &:active { transform: translateY(-1px); }
+    &:focus  { outline: none; box-shadow: 0 0 0 3px rgba($primary, .18); }
+  }
+
+  &__specs {
+    margin: 0;
+    padding: 14px;
+    list-style: none;
+    background: $panel;
+    border: 1px solid $line;
+    border-radius: $radius;
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    color: #0e1116;
+  }
+
+  &__description {
+    margin: 28px 0 8px;
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0e1116;
+    }
+
+    p {
+      margin: 0;
+      color: #242a33;
+      line-height: 1.55;
+      font-size: 16px;
+    }
+  }
+
+  /* ===== Related ===== */
+  &__related { margin-top: 28px; }
+
+  &__related-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      font-size: 14px;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  &__tile { text-decoration: none; color: inherit; display: block; }
+
+  &__card {
+    background: #fff;
+    border: 1px solid $line;
+    border-radius: $radius;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    &:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__card-title {
+    margin: 10px 10px 6px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #0e1116;
+  }
+
+  &__card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 0 10px 12px;
+
+    .product-page__card-price   { font-weight: 700; color: $primary; }
+    .product-page__card-purpose {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba($primary, .08);
+      color: $primary;
+      font-size: 12px;
+      text-transform: lowercase;
+    }
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1279px) {
+  .product-page__header { grid-template-columns: 1fr; }
+  .product-page__grid   { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1023px) {
+  .product-page__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 599px) {
+  .product-page__container { padding: 72px 3%; }
+  .product-page__grid      { grid-template-columns: 1fr; gap: 14px; }
+}

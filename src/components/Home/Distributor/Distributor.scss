@@ -1,0 +1,152 @@
+.distributor {
+  margin-bottom: 100px;
+  width: 100%;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .16);
+  border-radius: 16px;
+  color: black;
+}
+
+.distributor-content {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 30px;
+  gap:50px
+}
+
+.distributor-logo {
+  img {
+    max-height: 225px;
+    width: auto;
+  }
+}
+
+.distributor-info {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  gap: 16px;
+
+  .distributor-text {
+    font-size: 34px;
+    color: #222;
+
+    .distributor-link {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+  }
+
+  .distributor-cities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 колонки, равномерно распределенные */
+    grid-template-rows: repeat(2, auto);
+    gap: 24px 80px; /* горизонтальный и вертикальный отступ */
+    width: 100%;  /* Заполняет всю ширину контейнера */
+    margin-top: 20px;
+    justify-content: space-between;
+
+    .city {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      color: #3b82f6;
+      font-size: 30px;
+      font-weight: 400;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+
+      &:hover {
+        color: #2563eb;
+      }
+
+      .icon-location {
+        width: 30px;
+        height: 30px;
+        background: url("/images/Distributor/location.svg") no-repeat center / contain;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1700px) {
+    .distributor-cities {
+        gap: 24px 35px !important;
+    }
+}
+
+/* ====== Адаптивные стили ====== */
+@media (max-width: 1400px) {
+  .distributor-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .distributor-logo {
+    margin-bottom: 20px; /* Отступ между логотипом и информацией */
+  }
+
+  .distributor-info {
+    align-items: center;
+    text-align: center;
+
+    .distributor-text {
+      font-size: 28px; /* Уменьшаем размер шрифта на планшетах */
+    }
+
+    .distributor-cities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+      grid-template-rows: repeat(3, auto);  /* 3 строки */
+      gap: 16px 40px; /* Меньше горизонтальное пространство */
+      max-width: 600px; /* Ограничиваем максимальную ширину */
+      justify-items: center; /* Горизонтальное выравнивание по центру */
+      align-items: center; /* Вертикальное выравнивание по центру */
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .distributor-info {
+    .distributor-text {
+      font-size: 24px; /* Уменьшаем размер на мобильных устройствах */
+    }
+
+    .distributor-cities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+      grid-template-rows: repeat(3, auto);  /* 3 строки */
+      gap: 12px 20px; /* Меньше отступы */
+      max-width: 500px; /* Еще меньше максимальная ширина */
+      justify-items: center; /* Горизонтальное выравнивание по центру */
+      align-items: center; /* Вертикальное выравнивание по центру */
+    }
+  }
+}
+
+@media (max-width: 530px) {
+
+    .distributor{
+        margin-bottom: 50px;
+    }
+    .distributor-logo img{
+        max-width: 100%;
+    }
+  .distributor-info {
+    .distributor-text {
+      font-size: 20px; /* Еще меньше шрифт на самых маленьких экранах */
+    }
+
+    .distributor-cities {
+      display: grid;
+      grid-template-columns: 1fr; /* 1 колонка на самых маленьких экранах */
+      grid-template-rows: repeat(6, auto); /* 6 строк, каждый город в своей строке */
+      gap: 10px; /* Очень маленькие отступы */
+      justify-items: center; /* Горизонтальное выравнивание по центру */
+      align-items: center; /* Вертикальное выравнивание по центру */
+    }
+  }
+}

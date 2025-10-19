@@ -1,0 +1,175 @@
+/* ====== базовые переменные ====== */
+:root {
+  --radius: 18px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .10);
+  --shadow-hover: 0 14px 36px rgba(0, 0, 0, .16);
+  --brand: #1b75bb;
+}
+
+/* ====== секция ====== */
+.why {
+  margin-bottom: 100px;
+
+  .why-title{
+    color: black;
+    margin-bottom: 20px;
+    font-size: 48px;
+  }
+}
+
+/* ====== сетка ====== */
+.why__grid {
+  display: grid;
+  gap: clamp(10px, 2vw, 18px);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ====== карточка ====== */
+.why-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+  aspect-ratio: 4 / 7;
+  transform: translateZ(0); /* лучшее сглаживание анимаций */
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  /* градиент для читаемости подписи */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, .45) 0%,
+      rgba(0, 0, 0, .12) 40%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+
+  /* hover / focus */
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+/* картинка — отдельно, чтобы зумить без дерганий */
+.why-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+  transform: scale(1.02);
+}
+
+.why-card:hover .why-card__img,
+.why-card:focus-within .why-card__img {
+  transform: scale(1.06);
+}
+
+/* подпись */
+.why-card__caption {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 1;
+  color: #fff;
+  font-family: "Avenir";
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.why-card:hover .why-card__caption,
+.why-card:focus-within .why-card__caption {
+  transform: translateY(-2px);
+  opacity: .96;
+}
+
+/* ====== карточка с брендами ====== */
+.why-card--brands {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 14px;
+
+  /* без затемнения поверх контента */
+  &::after { display: none; }
+}
+
+.why-brands__title {
+  font-family: "Avenir";
+  margin: 6px 0 8px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--brand);
+  line-height: 1.15;
+
+  span { display: block; }
+}
+
+.why-brands__logos {
+  display: grid;
+  grid-auto-rows: min-content;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(12px, 2.5vw, 20px);
+  padding: 8px 6px 12px;
+
+  img {
+    max-width: 78%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.06));
+    transition: transform .25s ease;
+  }
+
+  /* небольшая реакция логотипов на hover всей карточки */
+  .why-card--brands:hover & img,
+  .why-card--brands:focus-within & img {
+    transform: translateY(-2px);
+  }
+}
+
+/* ====== мобильные штрихи ====== */
+@media (max-width: 1400px) {
+  .why-card__caption{font-size: 25px;}
+  .why-card{aspect-ratio: auto;}
+  .why-card--brands { aspect-ratio: auto; }
+}
+
+@media (max-width: 920px) {
+  .why{
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .why-brands__title{font-size: 25px;}
+  .why-title{font-size: 30px !important;}
+  .why-card--brands { aspect-ratio: 5 / 9; }
+  .why-brands__logos img { max-width: 82%; }
+}
+
+/* уважение к reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .why-card,
+  .why-card__img,
+  .why-card__caption,
+  .why-brands__logos img {
+    transition: none;
+  }
+}

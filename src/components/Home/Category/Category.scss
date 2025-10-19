@@ -1,0 +1,180 @@
+/* ====== базовые переменные ====== */
+:root {
+  --radius: 18px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .10);
+  --shadow-hover: 0 14px 36px rgba(0, 0, 0, .16);
+  --brand: #1b75bb;
+}
+
+/* ====== секция ====== */
+.categories {
+  margin-bottom: 100px;
+
+  .cat-title{
+    color: black;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 600;
+  }
+}
+
+/* ====== сетка категорий ====== */
+.categories__grid {
+  background: transparent;
+  display: grid;
+  gap: clamp(10px, 2vw, 18px);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ====== карточка категории ====== */
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+  aspect-ratio: 4 / 5;
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  /* hover / focus эффекты */
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* градиенты для разных карточек */
+  &.gradient-home::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(209, 154, 0, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &.gradient-Stirka::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(59, 61, 187, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &.gradient-self::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(210, 63, 139, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &.gradient-eco::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(40, 159, 69, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+}
+
+/* заголовок слева сверху */
+.category-card__title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  font-size: 21px;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* кнопка "Перейти" справа снизу */
+.category-card__link {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  &:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    transition: transform .25s ease;
+  }
+
+  &:hover img {
+    transform: translateX(3px);
+  }
+}
+
+/* ====== картинка — отдельно, чтобы зумить без дерганий ====== */
+.category-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+  transform: scale(1.02);
+}
+
+.category-card:hover .category-card__img,
+.category-card:focus-within .category-card__img {
+  transform: scale(1.06);
+}
+
+/* ====== мобильные штрихи ====== */
+@media (max-width: 920px) {
+  .categories{
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .cat-title{font-size: 30px !important;}
+  .category-card__title {
+    font-size: 18px; /* Уменьшаем размер заголовка на маленьких экранах */
+  }
+
+  .category-card__link {
+    font-size: 16px; /* Уменьшаем размер текста кнопки */
+    padding: 8px 12px;
+  }
+}
+
+/* уважение к reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .category-card,
+  .category-card__img,
+  .category-card__title,
+  .category-card__link {
+    transition: none;
+  }
+}
