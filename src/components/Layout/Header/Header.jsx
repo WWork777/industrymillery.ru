@@ -68,7 +68,7 @@ export default function Header() {
           <li><Link href="/wherebuy" onClick={closeMenu}>Где купить</Link></li>
           <li><Link href="/certificates" onClick={closeMenu}>Сертификаты</Link></li>
           <li><Link href="/contracts" onClick={closeMenu}>Контракты СТМ</Link></li>
-          <li><Link href="/about" onClick={closeMenu}>О нас</Link></li>
+          {/* <li><Link href="/about" onClick={closeMenu}>О нас</Link></li> */}
         </ul>
         <a className="mobile_phone" href="tel:+70000000000">+7 000 000 0000</a>
       </div>
