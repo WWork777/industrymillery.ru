@@ -1,0 +1,103 @@
+.wherebuy {
+  font-family: "Avenir";
+  color: #000;
+}
+
+.wherebuy__container {
+  margin-bottom: 100px;
+}
+
+.wherebuy__title {
+  margin: 140px 0 18px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #000;
+}
+
+.wherebuy__intro {
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #2a2f36;
+
+  p { margin: 0 0 10px; }
+}
+
+/* Карта: responsive box */
+.wherebuy__map {
+  margin: 18px 0 22px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+  background: #f2f4f8;
+}
+
+.wherebuy__map iframe {
+  border: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Сетка филиалов */
+.wherebuy__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.wherebuy__card {
+  background: #fff;
+  border: 1px solid #e7e9ee;
+  border-radius: 14px;
+  padding: 14px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.wherebuy__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  border-color: rgba(0,0,0,.06);
+}
+
+.wherebuy__card-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.wherebuy__line {
+  margin: 0 0 6px;
+  font-size: 14px;
+
+  a {
+    color: #0096D0;
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .wherebuy__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+    .wherebuy__title {
+        margin-top: 50px;
+    }
+    .wherebuy__container {
+    margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 640px) {
+  .wherebuy__title { font-size: 32px; }
+  .wherebuy__grid { grid-template-columns: 1fr; }
+  .wherebuy__map { aspect-ratio: 3 / 4; } /* вертикаль повыше на мобилке */
+}

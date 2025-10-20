@@ -1,0 +1,182 @@
+/* ===== Certificates (simple) ===== */
+.certs {
+  font-family: "Avenir" !important;
+}
+
+
+.certs__container{
+    margin-bottom: 100px;
+}
+.certs__title {
+  margin: 140px 0 18px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #000;
+}
+
+/* Grid: 4 → 2 → 1 */
+.certs__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .certs__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .certs__grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.certs__card {
+  appearance: none;
+  width: 100%;
+  background: #fff;
+  // border: 1px solid #e7e9ee;
+  border: 0;
+  border-radius: 14px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.certs__card:hover {
+  transform: translateY(-2px);
+  // box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  // border-color: rgba(0,0,0,.06);
+}
+
+.certs__card:focus-visible {
+  outline: 3px solid rgba(43,111,255,.25);
+  outline-offset: 2px;
+}
+
+.certs__thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.certs__thumb img {
+  object-fit: cover;
+}
+
+.certs__caption {
+  display: block;
+  margin: 8px 4px 2px;
+  font-size: 14px;
+  color: #222;
+  font-family: "Avenir" !important;
+}
+
+/* ===== Popup ===== */
+.certs__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,12,16,.7);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  padding: 24px;
+  animation: certsFadeIn .15s ease;
+}
+
+.certs__modal {
+  position: relative;
+  width: 90vw;
+  height: 80vh;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #00000020;
+}
+
+.certs__modal img {
+  object-fit: contain;
+  background: #00000020;
+  width: 100%;
+  height: 100%;
+}
+
+/* Close button */
+.certs__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,.9);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+
+.certs__close::before,
+.certs__close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  background: #111;
+  transform-origin: center;
+}
+
+.certs__close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.certs__close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ===== Mobile adjustments for popup ===== */
+@media (max-width: 992px) {
+    .certs__container{
+    margin-bottom: 50px;
+}
+.certs__title {
+  margin: 50px 0 18px;
+}
+}
+
+@media (max-width: 560px) {
+  .certs__title { font-size: 28px; }
+
+  .certs__overlay { padding: 0; }
+
+  .certs__modal {
+    width: 100vw;
+    height: 100vh;
+    
+    border-radius: 0;          /* во всю область экрана */
+  }
+
+  .certs__close {
+    top: 14px;
+    right: 14px;
+    width: 44px;               /* удобнее нажимать */
+    height: 44px;
+  }
+
+  .certs__close::before,
+  .certs__close::after {
+    width: 22px;
+  }
+}
+
+/* a11y helper */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px,1px,1px,1px);
+  white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
+@keyframes certsFadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}

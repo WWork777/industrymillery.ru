@@ -1,0 +1,291 @@
+/* =========================================================
+   Contracts — simple, readable styling
+   ========================================================= */
+
+.contracts-s {
+  font-family: "Avenir";
+  color: #000
+}
+
+.contracts-s__container {
+  margin-bottom: 100px;
+}
+
+/* =================== Hero =================== */
+
+.contracts-s__title {
+  margin: 140px 0 18px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #000;
+}
+
+.contracts-s__lead {
+  margin: 0 0 18px;
+  max-width: 860px;
+  line-height: 1.55;
+  color: #2a2f36;
+}
+
+/* =================== Choices =================== */
+
+.contracts-s__choices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contracts-s__choice {
+  background: #fff;
+  border: 1px solid #e7e9ee;
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0,0,0,.06);
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+
+  h2 {
+    margin: 0 0 6px;
+    font-weight: 800;
+    font-size: 22px;
+  }
+
+  p {
+    margin: 0 0 8px;
+    color: #2a2f36;
+  }
+
+  ul {
+    margin: 0 0 10px;
+    padding-left: 16px;
+    display: grid;
+    gap: 6px;
+  }
+}
+
+/* =================== Roadmap (СТМ шаги) =================== */
+
+.contracts-s__steps {
+  margin: 6px 0 18px;
+
+  h3 {
+    margin: 0 0 10px;
+    font-weight: 800;
+    font-size: 20px;
+  }
+}
+
+.steps {
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+
+  /* reset */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.steps li {
+  background: #f7f8fb;
+  border: 1px solid #e7e9ee;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  will-change: transform, opacity;
+
+  /* hover micro interaction */
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0,0,0,.06);
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  }
+
+  /* entrance animation (staggered) */
+  opacity: 0;
+  transform: translateY(8px);
+  animation: stepsFadeUp .5s ease forwards;
+
+  &:nth-child(1) { animation-delay: .02s; }
+  &:nth-child(2) { animation-delay: .08s; }
+  &:nth-child(3) { animation-delay: .14s; }
+  &:nth-child(4) { animation-delay: .20s; }
+  &:nth-child(5) { animation-delay: .26s; }
+
+  span {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 800;
+  }
+
+  small {
+    display: block;
+    color: #6b7280;
+  }
+}
+
+@keyframes stepsFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* users preferring less motion */
+@media (prefers-reduced-motion: reduce) {
+  .steps li {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =================== Partners =================== */
+
+.contracts-s__partners {
+  margin: 6px 0 18px;
+
+  h3 {
+    margin: 0 0 10px;
+    font-weight: 800;
+    font-size: 20px;
+  }
+}
+
+/* Desktop-first сетка партнёров: 6 → 4 → 2 */
+.partners-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.partner {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: #000;
+
+  background: #fff;
+  border: 1px solid #e7e9ee;
+  border-radius: 12px;
+  padding: 12px;
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0,0,0,.06);
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+
+  img {
+    max-width: 50%;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 12px;
+    color: #6b7280;
+  }
+}
+
+/* =================== CTA =================== */
+
+.contracts-s__cta {
+  background: #fff;
+  border: 1px solid #e7e9ee;
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+
+  h3 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 20px;
+  }
+
+  p {
+    margin: 0;
+    color: #2a2f36;
+  }
+}
+
+.contracts-s__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 0 16px;
+
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  border: 1px solid transparent;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+
+  &:hover { transform: translateY(-1px); }
+}
+
+.btn--primary {
+  background: #0096D0;
+  color: #fff;
+  border-color: #0096D0;
+
+  &:hover { box-shadow: 0 8px 18px rgba(43,111,255,.25); }
+}
+
+.btn--secondary {
+  background: #fff;
+  color: #000;
+  border-color: #0096D0;
+
+  &:hover { box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+}
+
+.btn--ghost {
+  background: #fff;
+  color: #000;
+  border-color: #e7e9ee;
+
+  &:hover { box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+}
+
+/* =================== Responsive =================== */
+
+
+
+@media (max-width: 1100px) {
+  .contracts-s__choices { grid-template-columns: 1fr; }
+  .steps               { grid-template-columns: repeat(3, 1fr); }
+  .partners-grid       { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 992px) {
+    .contracts-s__title {
+    margin: 50px 0 18px;
+    }
+}
+
+@media (max-width: 700px) {
+  .steps                  { grid-template-columns: repeat(2, 1fr); }
+  .partners-grid          { grid-template-columns: repeat(2, 1fr); }
+}

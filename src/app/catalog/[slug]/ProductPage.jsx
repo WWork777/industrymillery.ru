@@ -33,9 +33,9 @@ export default function ProductPage({ product, related = [] }) {
 
             <div className="product-page__price-row">
               <div className="product-page__price">{formatPrice(product.price)}</div>
-              <button className="product-page__buy" type="button">
+              {/* <button className="product-page__buy" type="button">
                 В корзину
-              </button>
+              </button> */}
             </div>
 
             {Array.isArray(product.specs) && product.specs.length > 0 && (

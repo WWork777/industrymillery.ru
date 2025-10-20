@@ -34,10 +34,10 @@ export default function Header() {
                 </div>
             </li>
             <li><Link href="/catalog">Каталог</Link></li>
-            <li><Link href="/buy">Где купить</Link></li>
+            <li><Link href="/wherebuy">Где купить</Link></li>
             <li><Link href="/certificates">Сертификаты</Link></li>
             <li><Link href="/contracts">Контракты СТМ</Link></li>
-            <li><Link href="/about">О нас</Link></li>
+            {/* <li><Link href="/about">О нас</Link></li> */}
             <li>
                 <div className="header_contacts">
                     <a href="tel:+70000000000">+7 000 000 0000</a>
@@ -65,7 +65,7 @@ export default function Header() {
         <ul>
           <li><Link href="/" onClick={closeMenu}>Главная</Link></li>
           <li><Link href="/catalog" onClick={closeMenu}>Каталог</Link></li>
-          <li><Link href="/buy" onClick={closeMenu}>Где купить</Link></li>
+          <li><Link href="/wherebuy" onClick={closeMenu}>Где купить</Link></li>
           <li><Link href="/certificates" onClick={closeMenu}>Сертификаты</Link></li>
           <li><Link href="/contracts" onClick={closeMenu}>Контракты СТМ</Link></li>
           <li><Link href="/about" onClick={closeMenu}>О нас</Link></li>

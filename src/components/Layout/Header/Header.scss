@@ -26,7 +26,7 @@
 
 .header_logo img {
   width: auto;
-  height: 70px;
+  height: 75px;
 }
 .header_nav {
   flex: 1; /* заставляет блок занять всё пространство между логотипом и контактами */
@@ -51,7 +51,7 @@
     transition: color 0.2s ease;
 
     &:hover {
-      color: #007bff;
+      color: #0096D0;
     }
   }
 }
@@ -62,7 +62,7 @@
   text-decoration: none;
 
   &:hover {
-    color: #007bff;
+    color: #0096D0;
   }
 }
 
@@ -139,13 +139,13 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color: #007bff;
+        color: #0096D0;
       }
     }
   }
 
   .mobile_phone {
-    color: #007bff;
+    color: #0096D0;
     font-weight: 700;
     text-decoration: none;
     font-size: 18px;
@@ -172,7 +172,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .header_logo,
@@ -187,9 +186,65 @@
 }
 
 /* порядок элементов и поведение на мобиле */
+/* ===== MOBILE: только плавающий бургер, без белой полосы хедера ===== */
 @media (max-width: 992px) {
-  .header_logo { order: 1; }
-  .header_nav { order: 2; flex: 1 1 auto; display: none; }  /* не меняем разметку, только скрываем */
-  .header_contacts { order: 3; display: none; }
-  .burger { order: 4; display: block; margin-left: auto; }  /* прижимаем вправо */
+  /* сам header всегда прозрачный, даже когда .scrolled */
+  .header {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding-top: 0; /* убираем лишний отступ */
+  }
+  .header.scrolled {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* контейнер не занимает высоту */
+  .header__container {
+    padding: 0;       /* не создаём белую полосу */
+    height: 0;        /* схлопываем */
+    overflow: visible;
+  }
+
+  /* плавающая кнопка-бургер */
+  .burger {
+    position: fixed;      /* едет вместе со скроллом */
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+
+    /* вид «кнопки» */
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+
+    /* полоски по центру */
+    span {
+      left: 50%;
+      width: 18px;
+      height: 2px;
+      background: #111;
+      transform: translateX(-50%);
+    }
+    span:nth-child(1){ top: 12px; }
+    span:nth-child(2){ top: 19px; }
+    span:nth-child(3){ top: 26px; }
+
+    &.active span:nth-child(1){
+      top: 19px; transform: translateX(-50%) rotate(45deg);
+    }
+    &.active span:nth-child(2){ opacity: 0; }
+    &.active span:nth-child(3){
+      top: 19px; transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+
+  /* моб. меню остаётся фуллскрин; отступ вниз — под кнопку */
+  .mobile_menu {
+    padding-top: 70px; /* чтобы список не прятался под кнопкой */
+  }
 }
+
