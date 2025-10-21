@@ -1,6 +1,5 @@
 .slider {
   width: 100%;
-  padding-block: 8px 20px;
   margin-bottom: 100px;
 }
 
@@ -70,6 +69,12 @@
 .slider__swiper .swiper-button-next::after,
 .slider__swiper .swiper-button-prev::after {
   font-size: 16px;
+}
+
+@media (max-width: 992px) {
+  .slider{
+    margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 640px) {

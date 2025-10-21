@@ -8,6 +8,7 @@ $radius:  14px;
 /* ===== Catalog root ===== */
 .catalog-products {
   font-family: "Avenir";
+  margin-bottom: 100px;
 
   &__title {
     margin: 140px 0 18px;
@@ -207,6 +208,9 @@ $radius:  14px;
 
   .catalog-products__title{
     margin-top: 50px;
+  }
+  .catalog-products{
+    margin-bottom: 50px;
   }
 }
 
