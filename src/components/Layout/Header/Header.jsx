@@ -27,11 +27,16 @@ export default function Header() {
         <nav className="header_nav">
           <ul>
             <li>
+              <Link href="/">
                 <div className="header_logo">
-                    <Link href="/">
+                    
                         <img src="/images/logo.png" alt="Логотип" />
-                    </Link>
+                        
+                   
+                    <p>MILLERY</p>
                 </div>
+                </Link>
+              
             </li>
             <li><Link href="/catalog">Каталог</Link></li>
             <li><Link href="/wherebuy">Где купить</Link></li>
@@ -40,7 +45,10 @@ export default function Header() {
             {/* <li><Link href="/about">О нас</Link></li> */}
             <li>
                 <div className="header_contacts">
-                    <a href="tel:+70000000000">+7 000 000 0000</a>
+                    <a href="tel:+79236165991">+7 (923) 616-59-91</a>
+                    <a href="tel:+7(3842)441-515">8 (3842) 441-515</a>
+                    <a href="mailto:pkf.millery@yandex.ru">pkf.millery@yandex.ru</a>
+                    
                 </div>
             </li>
           </ul>
@@ -63,14 +71,31 @@ export default function Header() {
       {/* Мобильное меню */}
       <div className={`mobile_menu ${isMenuOpen ? "open" : ""}`}>
         <ul>
+          <li>
+            <Link href="/">
+                <div className="header_logo">
+                    
+                        <img src="/images/logo.png" alt="Логотип" />
+                        
+                   
+                    <p>MILLERY</p>
+                </div>
+                </Link>
+          </li>
           <li><Link href="/" onClick={closeMenu}>Главная</Link></li>
           <li><Link href="/catalog" onClick={closeMenu}>Каталог</Link></li>
           <li><Link href="/wherebuy" onClick={closeMenu}>Где купить</Link></li>
           <li><Link href="/certificates" onClick={closeMenu}>Сертификаты</Link></li>
           <li><Link href="/contracts" onClick={closeMenu}>Контракты СТМ</Link></li>
           {/* <li><Link href="/about" onClick={closeMenu}>О нас</Link></li> */}
+          <li><a className="mobile_phone" href="tel:+79236165991">+7 (923) 616-59-91</a></li>
+          <li><a className="mobile_phone" href="tel:+7(3842)441-515">8 (3842) 441-515</a></li>
+          <li><a className="mobile_phone" href="mailto:pkf.millery@yandex.ru">pkf.millery@yandex.ru</a></li>
         </ul>
-        <a className="mobile_phone" href="tel:+70000000000">+7 000 000 0000</a>
+
+        
+        
+        
       </div>
     </header>
   );

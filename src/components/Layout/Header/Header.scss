@@ -24,9 +24,18 @@
 
 }
 
-.header_logo img {
+.header_logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  gap: 5px;
+  
+  img {
   width: auto;
   height: 75px;
+}
 }
 .header_nav {
   flex: 1; /* заставляет блок занять всё пространство между логотипом и контактами */
@@ -56,15 +65,24 @@
   }
 }
 
-.header_contacts a {
-  color: #111;
-  font-weight: 400;
-  text-decoration: none;
+.header_contacts{
 
-  &:hover {
-    color: #0096D0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-transform: none;
+
+    a {
+    color: #111;
+    font-weight: 400;
+    text-decoration: none;
+
+    &:hover {
+      color: #0096D0;
+    }
   }
-}
+
+} 
 
 /* ----------- бургер (как в твоём старом компоненте) ----------- */
 .burger {
@@ -142,15 +160,19 @@
         color: #0096D0;
       }
     }
+
+    .mobile_phone {
+      color: #0096D0;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+
   }
 
-  .mobile_phone {
-    color: #0096D0;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    margin-top: 20px;
-  }
+  
 }
 
 /* ----------- адаптив ----------- */
@@ -244,7 +266,7 @@
 
   /* моб. меню остаётся фуллскрин; отступ вниз — под кнопку */
   .mobile_menu {
-    padding-top: 70px; /* чтобы список не прятался под кнопкой */
+    padding-top: 60px; /* чтобы список не прятался под кнопкой */
   }
 }
 

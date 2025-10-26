@@ -37,8 +37,9 @@ export default function Footer() {
         <div className="footer__column">
           <h4 className="footer__title">Контакты</h4>
           <ul className="footer__list">
-            <li><a href="tel:+70000000000">+7 000 000 0000</a></li>
-            <li><a href="mailto:lalala@mail.ru">lalala@mail.ru</a></li>
+            <li><a href="tel:+79236165991">+7 (923) 616-59-91</a></li>
+            <li><a href="tel:+7(3842)441-515">8 (3842) 441-515</a></li>
+            <li><a href="mailto:pkf.millery@yandex.ru">pkf.millery@yandex.ru</a></li>
           </ul>
         </div>
       </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Header from "@/components/Layout/Header/Header";
 import Footer from "@/components/Layout/Footer/Footer";
+import RecentViewed from "@/components/RecentViewed/RecentViewed";
 
 
 const Avenir = localFont({
@@ -36,8 +37,9 @@ export default function RootLayout({ children }) {
         <Header/>
         <div className="page-content">
           {children}
+          
         </div>
-        
+        <RecentViewed />
         <Footer/>
       </body>
     </html>

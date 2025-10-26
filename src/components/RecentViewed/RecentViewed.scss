@@ -1,0 +1,154 @@
+/* ===== Theme (согласовано с каталогом) ===== */
+$primary: #0096D0; // акцент (синий)
+$muted:   #6b7280;
+$line:    #e7e9ee;
+$panel:   #f7f8fb;
+$radius:  14px;
+
+/* RecentViewed.scss
+   Требуются переменные из твоей темы:
+   $primary, $line, $panel, $radius
+*/
+
+/* Корневой контейнер */
+.recent-viewed {
+  position: fixed;
+  right: 0;
+  top: 25vh;
+  z-index: 60;
+  font-family: "Avenir";
+  color: #000;
+}
+
+/* Состояния панели */
+.recent-viewed.is-closed .recent-viewed__panel {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.recent-viewed.is-open .recent-viewed__panel {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Язычок-открывашка */
+.recent-viewed__toggle {
+  position: absolute;
+  top: 24px;
+  width: 28px;
+  height: 44px;
+  border: 1px solid $line;
+  background: $primary;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Открыто: язычок «приклеен» к панели и торчит влево */
+.recent-viewed.is-open .recent-viewed__toggle {
+  left: -28px;
+  right: auto;
+}
+
+/* Закрыто: язычок у края экрана (не «в воздухе») */
+.recent-viewed.is-closed .recent-viewed__toggle {
+  left: auto;
+  right: max(0px, env(safe-area-inset-right));
+}
+
+/* (опционально) иконка внутри язычка — для анимации поворота */
+.recent-viewed__toggle-icon {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+.recent-viewed.is-open .recent-viewed__toggle-icon { transform: rotate(0deg); }    /* ⟩ */
+.recent-viewed.is-closed .recent-viewed__toggle-icon { transform: rotate(180deg); }/* ⟨ */
+
+/* Панель */
+.recent-viewed__panel {
+  width: 300px;
+  max-height: 60vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid $line;
+  border-right: 0;
+  border-radius: $radius 0 0 $radius;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Шапка панели */
+.recent-viewed__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid $line;
+}
+.recent-viewed__title { font-size: 16px; font-weight: 700; }
+.recent-viewed__close {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid $line;
+  background: #fff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Список товаров */
+.recent-viewed__list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  display: grid;
+  gap: 8px;
+}
+.recent-viewed__item {
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: 10px;
+}
+.recent-viewed__link {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.recent-viewed__img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f2f4f8;
+}
+.recent-viewed__name {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* Адаптив: скрываем панель на планшетах/мобилках */
+// @media (max-width: 992px) {
+//   .recent-viewed { display: none; }
+// }
+
+/* Уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .recent-viewed__panel,
+  .recent-viewed__toggle-icon {
+    transition: none;
+  }
+}
+
