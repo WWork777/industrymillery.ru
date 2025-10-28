@@ -20,11 +20,16 @@ $radius:  14px;
   color: #000;
 }
 
+.is-closed{
+  pointer-events: none;
+}
+
 /* Состояния панели */
 .recent-viewed.is-closed .recent-viewed__panel {
   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
+  
 }
 .recent-viewed.is-open .recent-viewed__panel {
   transform: translateX(0);
@@ -33,6 +38,7 @@ $radius:  14px;
 
 /* Язычок-открывашка */
 .recent-viewed__toggle {
+  pointer-events: all !important;
   position: absolute;
   top: 24px;
   width: 28px;
