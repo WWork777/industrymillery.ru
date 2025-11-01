@@ -139,7 +139,18 @@ export default function ProductPage({ product, related = [] }) {
                 <Typography className="product-page__acc-title">Способ применения</Typography>
               </AccordionSummary>
               <AccordionDetails className="product-page__acc-details">
-                <Typography className="product-page__acc-text">{product.usage}</Typography>
+                <Typography className="product-page__acc-text">
+                  {product.usage.split('\n').map((line, index, array) => (
+                    <span key={index}>
+                      {line}
+                      {index === 0 ? ( // После первой строки
+                        <></>
+                      ) : index < array.length - 1 && ( // После остальных строк (кроме последней)
+                        <><br /><br /></>
+                      )}
+                    </span>
+                  ))}
+                </Typography>
               </AccordionDetails>
             </Accordion>
           )}

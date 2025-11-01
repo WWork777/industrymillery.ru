@@ -19,6 +19,7 @@
   transition: transform .25s ease, box-shadow .25s ease;
   overflow: visible; /* чтобы радиус не обрезался при hover */
   position: relative;
+  
 }
 
 
@@ -33,6 +34,7 @@
   object-fit: cover;
   border-radius: 14px; /* вернуть радиус */
   overflow: hidden;
+  
 }
 
 .product__name {

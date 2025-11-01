@@ -38,7 +38,7 @@ $radius:  14px;
 /* ===== Header layout ===== */
 .product-page__header {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 28px;
   align-items: start;
   margin-bottom: 32px;
@@ -47,6 +47,7 @@ $radius:  14px;
 /* ===== Media ===== */
 .product-page__media {
   position: relative;
+  max-width: 30vw;
   background: #f2f4f8;
   border-radius: $radius;
   overflow: hidden;
@@ -54,7 +55,8 @@ $radius:  14px;
 .product-page__media img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  // aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 .product-page__purpose {
@@ -305,6 +307,7 @@ $radius:  14px;
 
 @media (max-width: 992px) {
   .product-page__header { grid-template-columns: 1fr; }
+  .product-page__media {max-width: 100%;}
   .product-page { margin-top: 60px; margin-bottom: 50px; }
 }
 

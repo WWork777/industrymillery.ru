@@ -4,59 +4,60 @@ import React, { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import "./Catalog.scss";
+import PRODUCTS from "../../data/Products.json"
 
 /* Данные (JSON) внутри компонента */
-const data = [
-  {
-    name: "Чистящее средство, 500 мл",
-    price: 390,
-    purpose: "для дома",
-    image: "/images/Products/1.jpg",
-    link: "/catalog/cleaner-500",
-  },
-  {
-    name: "Шампунь для волос, 250 мл",
-    price: 450,
-    purpose: "для дома",
-    image: "/images/Products/2.jpg",
-    link: "/catalog/shampoo-250",
-  },
-  {
-    name: "Шампунь для волос, 250 мл",
-    price: 300,
-    purpose: "для дома",
-    image: "/images/Products/2.jpg",
-    link: "/catalog/shampoo-250",
-  },
-  {
-    name: "Гель для стирки, 1 л",
-    price: 590,
-    purpose: "для себя",
-    image: "/images/Products/3.jpg",
-    link: "/catalog/laundry-1l",
-  },
-  {
-    name: "Спрей для кухни, 500 мл",
-    price: 420,
-    purpose: "уборка",
-    image: "/img/products/kitchen-500.jpg",
-    link: "/catalog/kitchen-500",
-  },
-  {
-    name: "Кондиционер для белья, 1 л",
-    price: 520,
-    purpose: "для стирки",
-    image: "/img/products/softener-1l.jpg",
-    link: "/catalog/softener-1l",
-  },
-  {
-    name: "Гель для душа, 300 мл",
-    price: 360,
-    purpose: "эко",
-    image: "/img/products/showergel-300.jpg",
-    link: "/catalog/showergel-300",
-  },
-];
+// const data = [
+//   {
+//     name: "Чистящее средство, 500 мл",
+//     price: 390,
+//     purpose: "для дома",
+//     image: "/images/Products/1.jpg",
+//     link: "/catalog/cleaner-500",
+//   },
+//   {
+//     name: "Шампунь для волос, 250 мл",
+//     price: 450,
+//     purpose: "для дома",
+//     image: "/images/Products/2.jpg",
+//     link: "/catalog/shampoo-250",
+//   },
+//   {
+//     name: "Шампунь для волос, 250 мл",
+//     price: 300,
+//     purpose: "для дома",
+//     image: "/images/Products/2.jpg",
+//     link: "/catalog/shampoo-250",
+//   },
+//   {
+//     name: "Гель для стирки, 1 л",
+//     price: 590,
+//     purpose: "для себя",
+//     image: "/images/Products/3.jpg",
+//     link: "/catalog/laundry-1l",
+//   },
+//   {
+//     name: "Спрей для кухни, 500 мл",
+//     price: 420,
+//     purpose: "уборка",
+//     image: "/img/products/kitchen-500.jpg",
+//     link: "/catalog/kitchen-500",
+//   },
+//   {
+//     name: "Кондиционер для белья, 1 л",
+//     price: 520,
+//     purpose: "для стирки",
+//     image: "/img/products/softener-1l.jpg",
+//     link: "/catalog/softener-1l",
+//   },
+//   {
+//     name: "Гель для душа, 300 мл",
+//     price: 360,
+//     purpose: "эко",
+//     image: "/img/products/showergel-300.jpg",
+//     link: "/catalog/showergel-300",
+//   },
+// ];
 
 export default function ProductsCatalog() {
   const searchParams = useSearchParams();
@@ -73,7 +74,7 @@ export default function ProductsCatalog() {
     const min = minPrice === "" ? -Infinity : Number(minPrice);
     const max = maxPrice === "" ? Infinity : Number(maxPrice);
 
-    return data.filter((p) => {
+    return PRODUCTS.filter((p) => {
       const okPrice = p.price >= min && p.price <= max;
       const okPurpose = purpose === "all" ? true : p.purpose === purpose;
       return okPrice && okPurpose;
@@ -125,7 +126,7 @@ export default function ProductsCatalog() {
             </select>
           </div>
 
-          <div className="filters-control">
+          {/* <div className="filters-control">
             <label>Цена, ₽</label>
             <div className="filters-range">
               <input
@@ -148,7 +149,7 @@ export default function ProductsCatalog() {
                 min={0}
               />
             </div>
-          </div>
+          </div> */}
 
           <button type="button" className="filters-reset" onClick={reset}>
             Сбросить
@@ -163,9 +164,9 @@ export default function ProductsCatalog() {
       {/* Сетка карточек */}
       <div className="catalog-products__grid">
         {products.map((p, i) => (
-          <div className="catalog-products__cell" key={`${p.link}-${i}`}>
+          <div className="catalog-products__cell" key={`${p.slug}-${i}`}>
             <Link
-              href={p.link}
+              href={`/catalog/${p.slug}`}
               className="catalog-products__link"
               aria-label={p.name}
             >
@@ -173,9 +174,9 @@ export default function ProductsCatalog() {
                 <img className="product__img" src={p.image} alt={p.name} />
                 <h3 className="product__name">{p.name}</h3>
                 <div className="product__meta">
-                  <span className="product__price">
+                  {/* <span className="product__price">
                     {Number(p.price).toLocaleString("ru-RU")} ₽
-                  </span>
+                  </span> */}
                   <span className="product__purpose">{p.purpose}</span>
                 </div>
               </article>
