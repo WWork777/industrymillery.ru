@@ -1,15 +1,15 @@
 import WhereBuy from "@/components/WhereBuy/WhereBuy";
 
 export const metadata = {
-  title: "ТДС ГДЕ КУПИТЬ",
-  description: "Сертификаты соответствия и качества компании ТДС.",
-  alternates: { canonical: "https://example.com/certificates" },
-  keywords: ["сертификаты", "качество", "соответствие", "ТДС"],
+  title: "Где купить Millery - Дистрибьюторы и точки продаж",
+  description: "Официальные дистрибьюторы и точки продаж продукции Millery. Найти где купить жидкое мыло Millery в вашем регионе.",
+  alternates: { canonical: "https://industrymillery.ru/wherebuy" },
+  keywords: ["где купить Millery", "дистрибьюторы Millery", "точки продаж", "купить жидкое мыло", "поставщики Millery", "региональные представители"],
   openGraph: {
-    title: "ТДС Сертификаты",
-    description: "Сертификаты соответствия и качества компании ТДС.",
-    url: "https://example.com/certificates",
-    images: [{ url: "/favicon/favicon-96x96.png", alt: "TDS" }],
+    title: "Где купить продукцию Millery - Дистрибьюторы",
+    description: "Найдите официальных дистрибьюторов и точки продаж Millery в вашем регионе. Широкая сеть поставок.",
+    url: "https://industrymillery.ru/wherebuy",
+    images: [{ url: "/images/Hero/fon.jpg", alt: "Millery Где купить" }],
     type: "website",
   },
 };

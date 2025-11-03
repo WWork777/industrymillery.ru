@@ -3,9 +3,9 @@ import "./Why.scss";
 
 export default function WhyStrip() {
   const items = [
-    { title: "ПРИЧИНА 2", image: "/images/Why/reason1.jpg" },
-    { title: "ПРИЧИНА 3", image: "/images/Why/reason1.jpg" },
-    { title: "ПРИЧИНА 4", image: "/images/Why/reason1.jpg" },
+    { title: "Качество и безопасность", image: "/images/Why/reason1.jpg" },
+    { title: "Выгода и надежность", image: "/images/Why/reason1.jpg" },
+    { title: "Собственное производство", image: "/images/Why/reason1.jpg" },
   ];
 
   return (

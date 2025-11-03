@@ -8,40 +8,6 @@ import Distributor from "@/components/Home/Distributor/Distributor";
 import Slider from "@/components/Home/Slider/Slider";
 
 export default function Home() {
-
-  const products = [
-    {
-      image: "/images/Products/1.jpg",
-      name: "Мыло жидкое антибактериальное, 500 мл",
-      link: "/catalog/cleaner-500"
-    },
-    {
-      image: "/images/Products/2.jpg",
-      name: "Моющее средство для посуды, 500 мл",
-      link: "ya.ru"
-    },
-    {
-      image: "/images/Products/3.jpg",
-      name: "Чистящее средство, 500 мл",
-      link: "ya.ru"
-    },
-    {
-      image: "/images/product4.jpg",
-      name: "Шампунь для волос, 250 мл",
-      link: "ya.ru"
-    },
-    {
-      image: "/images/product4.jpg",
-      name: "Шампунь для волос, 250 мл",
-      link: "ya.ru"
-    },
-    {
-      image: "/images/product4.jpg",
-      name: "Шампунь для волос, 250 мл",
-      link: "ya.ru"
-    },
-  ];
-
   return (
     <>
       <Hero />

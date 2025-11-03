@@ -1,15 +1,15 @@
 import Certificates from "@/components/Certificates/Certificates";
 
 export const metadata = {
-  title: "ТДС Сертификаты",
-  description: "Сертификаты соответствия и качества компании ТДС.",
-  alternates: { canonical: "https://example.com/certificates" },
-  keywords: ["сертификаты", "качество", "соответствие", "ТДС"],
+  title: "Сертификаты качества Millery - Документация и соответствие",
+  description: "Сертификаты соответствия и качества продукции Millery. Вся необходимая документация на моющие средства и косметику.",
+  alternates: { canonical: "https://industrymillery.ru/certificates" },
+  keywords: ["сертификаты Millery", "качество продукции", "документация", "соответствие стандартам", "сертификаты качества", "СанПиН"],
   openGraph: {
-    title: "ТДС Сертификаты",
-    description: "Сертификаты соответствия и качества компании ТДС.",
-    url: "https://example.com/certificates",
-    images: [{ url: "/favicon/favicon-96x96.png", alt: "TDS" }],
+    title: "Сертификаты качества Millery",
+    description: "Официальные сертификаты соответствия и качества на всю продукцию Millery. Гарантия безопасности и стандартов.",
+    url: "https://industrymillery.ru/certificates",
+    images: [{ url: "/images/Hero/fon.jpg", alt: "Millery Сертификаты" }],
     type: "website",
   },
 };

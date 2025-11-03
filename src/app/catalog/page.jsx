@@ -4,23 +4,16 @@ import Catalog from "@/components/Catalog/Catalog";
 
 
 export const metadata = {
-  title: "Путь странника",
-  description: "",
-  alternates: {
-    canonical: 'https:'
-  },
-  keywords: [
-  ],
-    openGraph: {
-      title: "Путь странника",
-      description: "",
-      url: `https:`,
-      images: [
-          {
-              url: `/favicon/favicon-96x96.png`,
-              alt: '',
-          },
-      ],
+  title: "Каталог продукции Millery - Жидкое мыло, моющие средства оптом",
+  description: "Полный каталог продукции Millery: жидкое мыло, крем-мыло, моющие средства для бизнеса. Оптовые цены, различные объемы.",
+  alternates: { canonical: "https://industrymillery.ru/catalog" },
+  keywords: ["каталог Millery", "жидкое мыло оптом", "крем-мыло", "моющие средства каталог", "опт косметики", "продукция Millery"],
+  openGraph: {
+    title: "Каталог продукции Millery - Оптовые поставки",
+    description: "Жидкое мыло, моющие средства и косметика Millery для бизнеса. Широкий ассортимент, выгодные условия.",
+    url: "https://industrymillery.ru/catalog",
+    images: [{ url: "/images/Hero/fon.jpg", alt: "Millery Каталог" }],
+    type: "website",
   },
 };
 

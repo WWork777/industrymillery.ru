@@ -48,7 +48,7 @@
       to top,
       rgba(0, 0, 0, .45) 0%,
       rgba(0, 0, 0, .12) 40%,
-      rgba(0, 0, 0, 0) 70%
+      rgba(0, 0, 0, 0) 100%
     );
   }
 
@@ -162,9 +162,12 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   
   .why-title{font-size: 30px !important;}
+  .why-card{
+    aspect-ratio: 7 / 3;
+  }
   .why-card--brands { aspect-ratio: 5 / 9; }
   .why-brands__logos img { max-width: 82%; }
 }

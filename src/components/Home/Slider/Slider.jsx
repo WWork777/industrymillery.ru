@@ -36,14 +36,15 @@ export default function Slider({ title, purpose = null }) {
         breakpoints={{
           320:  { slidesPerView: 1, spaceBetween: 12 },
           640:  { slidesPerView: 2, spaceBetween: 16 },
-          1100: { slidesPerView: 3, spaceBetween: 20 },
-          1500: { slidesPerView: 4, spaceBetween: 24 },
+          800:  { slidesPerView: 3, spaceBetween: 16 },
+          1250: { slidesPerView: 4, spaceBetween: 20 },
+          1550: { slidesPerView: 5, spaceBetween: 24 },
         }}
         className="slider__swiper"
       >
         {filteredProducts.map((product, index) => (
           <SwiperSlide key={product.slug} className="slider__slide">
-            <a href={`/products/${product.slug}`}>
+            <a href={`/catalog/${product.slug}`}>
               <article className="product">
                 <img 
                   className="product__img" 

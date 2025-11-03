@@ -6,10 +6,6 @@ import "./Contracts.scss";
 const PARTNERS = [
   { name: "Сеть №1", logo: "/images/Why/begemag.png", url: "/catalog" },
   { name: "Сеть №2", logo: "/images/Why/novex.png", url: "/catalog" },
-//   { name: "Сеть №3", logo: "/img/partners/placeholder.svg", url: "#" },
-//   { name: "Сеть №4", logo: "/img/partners/placeholder.svg", url: "#" },
-//   { name: "Сеть №5", logo: "/img/partners/placeholder.svg", url: "#" },
-//   { name: "Сеть №6", logo: "/img/partners/placeholder.svg", url: "#" },
 ];
 
 export default function Contracts() {
