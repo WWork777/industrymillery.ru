@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
 
       
       <head>
-        <meta />
+        <meta name="yandex-verification" content="e81a6197323beae2" />
       </head>
 
 
