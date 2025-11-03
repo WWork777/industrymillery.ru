@@ -18,6 +18,12 @@ body {
   
 }
 
+@media (min-width:1000px) {
+  .page{
+    min-height: calc(100vh - 363px);
+  }
+}
+
 body {
   color: #000;
   background: white;

@@ -2,13 +2,27 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import "./Slider.scss"
-
+import "./Slider.scss";
+import PRODUCTS from "../../../data/Products.json"
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function Slider({ title, products = [] }) {
+export default function Slider({ title, purpose = null }) {
+  // Фильтрация товаров по категории или purpose
+  const filteredProducts = PRODUCTS.filter(product => {
+    if (purpose) {
+      // Если передан purpose, фильтруем по purpose
+      return product.purpose === purpose;
+    }
+    return false;
+  });
+
+  // Если нет товаров для отображения
+  if (filteredProducts.length === 0) {
+    return null; // или можно вернуть заглушку
+  }
+
   return (
     <section className="slider">
       <h2 className="slider__title">{title}</h2>
@@ -27,15 +41,20 @@ export default function Slider({ title, products = [] }) {
         }}
         className="slider__swiper"
       >
-        {products.map((p, i) => (
-          <SwiperSlide key={i} className="slider__slide">
-            <a href={p.link}>
-                <article className="product">
-                <img className="product__img" src={p.image} alt={p.name} />
-                <h3 className="product__name">{p.name}</h3>
+        {filteredProducts.map((product, index) => (
+          <SwiperSlide key={product.slug} className="slider__slide">
+            <a href={`/products/${product.slug}`}>
+              <article className="product">
+                <img 
+                  className="product__img" 
+                  src={product.image} 
+                  alt={product.name} 
+                />
+                <h3 className="product__name">{product.name}</h3>
+                {/* <p className="product__price">{product.price} ₽</p>
+                <p className="product__unit">{product.unit}</p> */}
               </article>
             </a>
-            
           </SwiperSlide>
         ))}
       </Swiper>

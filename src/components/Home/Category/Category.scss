@@ -165,6 +165,10 @@
   .category-card__title {
     font-size: 18px; /* Уменьшаем размер заголовка на маленьких экранах */
   }
+  .category-card{
+    max-height: 200px;
+    aspect-ratio: 5/2;
+  }
 
   .category-card__link {
     font-size: 16px; /* Уменьшаем размер текста кнопки */

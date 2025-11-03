@@ -34,10 +34,12 @@ export default function RootLayout({ children }) {
 
 
       <body className={` ${Avenir.variable}`}>
-        <Header/>
-        <div className="page-content">
-          {children}
-          
+        <div className="page">
+          <Header/>
+          <div className="page-content">
+            {children}
+            
+          </div>
         </div>
         <RecentViewed />
         <Footer/>

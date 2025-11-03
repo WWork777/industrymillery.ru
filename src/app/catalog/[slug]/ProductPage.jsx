@@ -75,13 +75,15 @@ export default function ProductPage({ product, related = [] }) {
 
             {/* Блок действия (без цены): только кнопка */}
             <div className="product-page__cta-row">
-              <button
-                className="product-page__buy"
-                type="button"
-                onClick={() => alert("Добавлено в корзину (заглушка)")}
-              >
-                Добавить в корзину
-              </button>
+              <Link href="tel:+79236165991">
+                <button
+                  className="product-page__buy"
+                  type="button"
+                >
+                  Узнать цену
+                </button>
+              </Link>
+              
             </div>
 
             {Array.isArray(product.specs) && product.specs.length > 0 && (
@@ -123,7 +125,18 @@ export default function ProductPage({ product, related = [] }) {
                 <Typography className="product-page__acc-title">Состав</Typography>
               </AccordionSummary>
               <AccordionDetails className="product-page__acc-details">
-                <Typography className="product-page__acc-text">{product.composition}</Typography>
+                <Typography className="product-page__acc-text">
+                  {product.composition.split('\n').map((line, index, array) => (
+                    <span key={index}>
+                      {line}
+                      {index === 0 ? ( // После первой строки
+                        <></>
+                      ) : index < array.length - 1 && ( // После остальных строк (кроме последней)
+                        <><br /><br /></>
+                      )}
+                    </span>
+                  ))}
+                </Typography>
               </AccordionDetails>
             </Accordion>
           )}

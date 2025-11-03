@@ -47,11 +47,11 @@ export default function Home() {
       <Hero />
       <Why />
       <Category/>
-      <Slider title="Для мытья посуды" products={products}/>
-      <Slider title="Для себя" products={products}/>
+      {/* <Slider title="Для мытья посуды" purpose="для дома"/> */}
+      <Slider title="Для себя" purpose="для себя"/>
       <News/>
-      <Slider title="Для уборки" products={products}/>
-      <Slider title="Для стирки" products={products}/>
+      <Slider title="Для уборки" purpose="для дома"/>
+      <Slider title="Для стирки" purpose="для стирки"/>
       <Distributor/>
     </>
   );

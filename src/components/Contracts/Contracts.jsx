@@ -4,8 +4,8 @@ import Link from "next/link";
 import "./Contracts.scss";
 
 const PARTNERS = [
-  { name: "Сеть №1", logo: "/images/Why/begemag.png", url: "#" },
-  { name: "Сеть №2", logo: "/images/Why/novex.png", url: "#" },
+  { name: "Сеть №1", logo: "/images/Why/begemag.png", url: "/catalog" },
+  { name: "Сеть №2", logo: "/images/Why/novex.png", url: "/catalog" },
 //   { name: "Сеть №3", logo: "/img/partners/placeholder.svg", url: "#" },
 //   { name: "Сеть №4", logo: "/img/partners/placeholder.svg", url: "#" },
 //   { name: "Сеть №5", logo: "/img/partners/placeholder.svg", url: "#" },
@@ -40,7 +40,7 @@ export default function Contracts() {
               <li>Маркировка и логистика</li>
             </ul>
             <div className="contracts-s__actions">
-              <Link className="btn btn--primary" href="/contacts">Запросить прайс</Link>
+              <Link className="btn btn--primary" href="tel:+79236165991">Запросить прайс</Link>
             </div>
           </article>
 
@@ -55,7 +55,7 @@ export default function Contracts() {
               <li>Пилотные партии</li>
             </ul>
             <div className="contracts-s__actions">
-              <Link className="btn btn--secondary" href="/contacts">Запросить бриф</Link>
+              <Link className="btn btn--secondary" href="tel:+79236165991">Запросить бриф</Link>
             </div>
           </article>
         </div>
@@ -77,7 +77,7 @@ export default function Contracts() {
           <h3>С кем работаем</h3>
           <div className="partners-grid">
             {PARTNERS.map((p, i) => (
-              <a
+              <Link
                 key={i}
                 className="partner"
                 href={p.url}
@@ -87,7 +87,7 @@ export default function Contracts() {
               >
                 <img src={p.logo} alt={p.name} />
                 {/* <span>{p.name}</span> */}
-              </a>
+              </Link>
             ))}
           </div>
         </section>
