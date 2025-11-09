@@ -203,7 +203,6 @@ export default function ProductPage({ product, cert, related = [] }) {
           <section className="product-page__related" aria-label="Другие объёмы">
             <div className="product-page__related-head">
               <h3>Сертификация</h3>
-              <span className="product-page__related-tip">Выберите объём</span>
             </div>
           
             <div className="certs__item" key={cert.id}>
