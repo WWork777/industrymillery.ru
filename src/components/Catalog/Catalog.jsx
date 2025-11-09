@@ -164,8 +164,8 @@ export default function ProductsCatalog() {
 
       {/* Сетка карточек */}
       <div className="catalog-products__grid">
-        {products.map((p, i) => (
-          <div className="catalog-products__cell" key={`${p.slug}-${i}`}>
+        {products.map((p) => (
+          <div className="catalog-products__cell" key={p.id}>
             <Link
               href={`/catalog/${p.slug}`}
               className="catalog-products__link"

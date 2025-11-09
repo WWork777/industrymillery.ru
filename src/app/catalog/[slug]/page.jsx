@@ -2,6 +2,10 @@
 import { notFound } from "next/navigation";
 import ProductPage from "./ProductPage";
 import PRODUCTS from "../../../data/Products.json"
+import CERTIFICATES from "../../../data/Certificates.json";
+
+
+
 
 
 const getBySlug = (slug) => PRODUCTS.find((p) => p.slug === slug);
@@ -51,5 +55,7 @@ export default function ProductPageRoute({ params }) {
     (p) => p.purpose === product.purpose && p.slug !== product.slug
   ).slice(0, 4);
 
-  return <ProductPage product={product} related={related} />;
+  const cert = CERTIFICATES.find((c) => c.id === product.id);
+
+  return <ProductPage product={product} cert={cert} related={related} />;
 }

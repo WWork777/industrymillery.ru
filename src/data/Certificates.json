@@ -1,0 +1,18 @@
+[
+  { "id": 5, "name": "Гель для душа Millery, 300мл", "link": "/files/shower-gel-mill-300.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 20, "name": "Средство белизна гель Milffor, 2 л", "link": "files/milffor.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 21, "name": "Средство белизна гель Milffor, 750 мл", "link": "files/milffor.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 22, "name": "Жидкое крем мыло Небесная чистота Millery, 1 л", "link": "files/liquid-soap-cloud-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 26, "name": "Жидкое крем мыло Небесная чистота Millery, 5 л", "link": "files/liquid-soap-cloud-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 30, "name": "Жидкое крем мыло Антибактериальное Millery, 5 л", "link": "files/liquid-soap-cloud-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 31, "name": "Средство для мытья посуды Яблоко Millery, 5 л", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 32, "name": "Средство для мытья посуды Яблоко Millery, 500 мл", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 33, "name": "Средство для мытья посуды Яблоко ECO Millery, 5 л", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 34, "name": "Средство для мытья посуды Лимон Super Millery, 5 л", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 36, "name": "Средство для мытья посуды Лимон Super Millery, 500 мл", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 37, "name": "СТМ Бегемаг Средство для мытья посуды Папайя, 500 мл", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 38, "name": "СТМ Бегемаг Средство для мытья посуды Цитрусовая свежесть, 500 мл", "link": "files/dishwashing-liquid-mill.pdf", "icon": "/images/Certificates/file.svg" },
+  { "id": 46, "name": "Средство для уборки универсальное Прогресс, 1 л", "link": "files/progress.jpg", "icon": "/images/Certificates/file.svg" },
+  { "id": 47, "name": "Средство для уборки универсальное Прогресс, 5 л", "link": "files/progress.jpg", "icon": "/images/Certificates/file.svg" },
+  { "id": 48, "name": "Биоразлагаемый шампунь Millery, 300 мл", "link": "files/shower-gel-mill-300.pdf", "icon": "/images/Certificates/file.svg" }
+]

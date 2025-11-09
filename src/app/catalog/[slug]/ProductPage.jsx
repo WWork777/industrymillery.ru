@@ -11,6 +11,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 
+
+
 function formatPrice(n) {
   try {
     return Number(n).toLocaleString("ru-RU") + " ₽";
@@ -25,7 +27,7 @@ function formatPrice(n) {
  * ЦЕНЫ ИЗ ВЁРСТКИ УБРАНЫ (договорная стоимость).
  * Новые поля продукта: unit, descFull, composition, usage, volumes[].
  */
-export default function ProductPage({ product, related = [] }) {
+export default function ProductPage({ product, cert, related = [] }) {
   const volumes = Array.isArray(product.volumes) ? product.volumes : [];
 
   // Сохраняем текущий товар в «просмотренные»
@@ -194,6 +196,21 @@ export default function ProductPage({ product, related = [] }) {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+        )}
+        {cert && (
+          <section className="product-page__related" aria-label="Другие объёмы">
+            <div className="product-page__related-head">
+              <h3>Сертификация</h3>
+              <span className="product-page__related-tip">Выберите объём</span>
+            </div>
+          
+            <div className="certs__item" key={cert.id}>
+              <a download href={cert.link} className="certs__icon" target="_blank" rel="noopener noreferrer">
+                <img src={cert.icon} alt={cert.name} />
+              </a>
+              <span className="certs__name">{cert.name}</span>
             </div>
           </section>
         )}
