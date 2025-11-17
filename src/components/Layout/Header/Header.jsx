@@ -39,6 +39,7 @@ export default function Header() {
               
             </li>
             <li><Link href="/catalog">Каталог</Link></li>
+            <li><Link href="/stm-catalog">Каталог СТМ</Link></li>
             <li><Link href="/wherebuy">Где купить</Link></li>
             <li><Link href="/certificates">Сертификаты</Link></li>
             <li><Link href="/contracts">Контракты СТМ</Link></li>
@@ -72,7 +73,7 @@ export default function Header() {
       <div className={`mobile_menu ${isMenuOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/" onClick={closeMenu}>
                 <div className="header_logo">
                     
                         <img src="/images/logo.png" alt="Логотип" />
@@ -83,6 +84,7 @@ export default function Header() {
                 </Link>
           </li>
           <li><Link href="/" onClick={closeMenu}>Главная</Link></li>
+          <li><Link href="/stm-catalog" onClick={closeMenu}>Каталог СТМ</Link></li>
           <li><Link href="/catalog" onClick={closeMenu}>Каталог</Link></li>
           <li><Link href="/wherebuy" onClick={closeMenu}>Где купить</Link></li>
           <li><Link href="/certificates" onClick={closeMenu}>Сертификаты</Link></li>

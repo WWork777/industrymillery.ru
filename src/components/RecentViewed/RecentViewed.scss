@@ -43,7 +43,7 @@ $radius:  14px;
   top: 24px;
   width: 28px;
   height: 44px;
-  border: 1px solid $line;
+  border: 2px solid $line;
   background: $primary;
   color: #fff;
   cursor: pointer;
@@ -59,12 +59,14 @@ $radius:  14px;
 .recent-viewed.is-open .recent-viewed__toggle {
   left: -28px;
   right: auto;
+  transition: left 0.3s ease-in-out;
 }
 
 /* Закрыто: язычок у края экрана (не «в воздухе») */
 .recent-viewed.is-closed .recent-viewed__toggle {
   left: auto;
   right: max(0px, env(safe-area-inset-right));
+  transition: left 0.3s ease-in-out;
 }
 
 /* (опционально) иконка внутри язычка — для анимации поворота */

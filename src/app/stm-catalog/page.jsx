@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Catalog from "@/components/Catalog/Catalog";
-import PRODUCTS from "@/data/Products.json"
+import stmProducts from "@/data/stmProducts.json"
 
 
 
@@ -22,9 +22,9 @@ export default function Page({ searchParams }) {
   return (
     <>
         <Catalog
-        filterON={true}
-        productsList={PRODUCTS}
-        title="Каталог"
+        filterON={false}
+        productsList={stmProducts}
+        title="Каталог СТМ"
         initialPurpose={searchParams.purpose ?? "all"}
         />
     </>

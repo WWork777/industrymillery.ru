@@ -19,6 +19,7 @@ export default function Footer() {
         <div className="footer__column">
           <h4 className="footer__title">О компании</h4>
           <ul className="footer__list">
+            <li><a href="/stm-catalog">Каталог СТМ</a></li>
             <li><a href="/certificates">Сертификаты и лицензии</a></li>
             <li><a href="/wherebuy">Где купить</a></li>
             <li><a href="/contracts">Контракты СТМ</a></li>

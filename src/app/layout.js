@@ -31,6 +31,14 @@ export const metadata = {
     images: [{ url: "/images/Hero/fon.jpg", alt: "Millery" }],
     type: "website",
   },
+  icons: {
+    icon: [
+      { rel: 'icon', type: 'image/svg+xml', url: '/favicon/favicon.ico' },
+    ],
+    shortcut: '/favicon/favicon.ico',
+    apple: '/favicon/apple-touch-icon.png',
+  },
+  manifest: '/favicon/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {

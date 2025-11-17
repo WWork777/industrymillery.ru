@@ -4,7 +4,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import "./Catalog.scss";
-import PRODUCTS from "../../data/Products.json"
+
 
 /* Данные (JSON) внутри компонента */
 // const data = [
@@ -59,7 +59,7 @@ import PRODUCTS from "../../data/Products.json"
 //   },
 // ];
 
-export default function ProductsCatalog() {
+export default function ProductsCatalog({productsList, filterON, title}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -74,7 +74,7 @@ export default function ProductsCatalog() {
     const min = minPrice === "" ? -Infinity : Number(minPrice);
     const max = maxPrice === "" ? Infinity : Number(maxPrice);
 
-    return PRODUCTS.filter((p) => {
+    return productsList.filter((p) => {
       const okPrice = p.price >= min && p.price <= max;
       const okPurpose = purpose === "all" ? true : p.purpose === purpose;
       return okPrice && okPurpose;
@@ -100,74 +100,76 @@ export default function ProductsCatalog() {
 
   return (
     <section className="catalog-products" aria-label="Каталог товаров">
-      <h2 className="catalog-products__title">Каталог</h2>
+      <h2 className="catalog-products__title">{title}</h2>
 
       {/* Фильтр */}
-      <div
-        className="catalog-products__filters"
-        role="region"
-        aria-label="Фильтр товаров"
-      >
-        <div className="filters-row">
-          <div className="filters-control">
-            <label htmlFor="purpose">Назначение</label>
-            <select
-              id="purpose"
-              value={purpose}
-              onChange={(e) => setPurpose(e.target.value)}
-            >
-              <option value="all">Все</option>
-              <option value="для дома">Для дома</option>
-              <option value="для стирки">Для стирки</option>
-              <option value="для себя">Для себя</option>
-              <option value="эко">Эко</option>
-              <option value="СТМ">СТМ</option>
-              
-              
-            </select>
+      {filterON &&
+        <div
+          className="catalog-products__filters"
+          role="region"
+          aria-label="Фильтр товаров"
+        >
+          <div className="filters-row">
+            <div className="filters-control">
+              <label htmlFor="purpose">Назначение</label>
+              <select
+                id="purpose"
+                value={purpose}
+                onChange={(e) => setPurpose(e.target.value)}
+              >
+                <option value="all">Все</option>
+                <option value="для дома">Для дома</option>
+                <option value="для стирки">Для стирки</option>
+                <option value="для себя">Для себя</option>
+                <option value="эко">Эко</option>
+                <option value="СТМ">СТМ</option>
+                
+                
+              </select>
+            </div>
+
+            {/* <div className="filters-control">
+              <label>Цена, ₽</label>
+              <div className="filters-range">
+                <input
+                  className="filters-input-half"
+                  type="number"
+                  inputMode="numeric"
+                  placeholder="от"
+                  value={minPrice}
+                  onChange={(e) => setMinPrice(e.target.value)}
+                  min={0}
+                />
+                <span className="filters-dash">—</span>
+                <input
+                  className="filters-input-half"
+                  type="number"
+                  inputMode="numeric"
+                  placeholder="до"
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(e.target.value)}
+                  min={0}
+                />
+              </div>
+            </div> */}
+
+            <button type="button" className="filters-reset" onClick={reset}>
+              Сбросить
+            </button>
           </div>
 
-          {/* <div className="filters-control">
-            <label>Цена, ₽</label>
-            <div className="filters-range">
-              <input
-                className="filters-input-half"
-                type="number"
-                inputMode="numeric"
-                placeholder="от"
-                value={minPrice}
-                onChange={(e) => setMinPrice(e.target.value)}
-                min={0}
-              />
-              <span className="filters-dash">—</span>
-              <input
-                className="filters-input-half"
-                type="number"
-                inputMode="numeric"
-                placeholder="до"
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(e.target.value)}
-                min={0}
-              />
-            </div>
-          </div> */}
-
-          <button type="button" className="filters-reset" onClick={reset}>
-            Сбросить
-          </button>
+          <div className="filters-count">
+            Найдено: <b>{products.length}</b>
+          </div>
         </div>
-
-        <div className="filters-count">
-          Найдено: <b>{products.length}</b>
-        </div>
-      </div>
+      }
 
       {/* Сетка карточек */}
       <div className="catalog-products__grid">
         {products.map((p) => (
           <div className="catalog-products__cell" key={p.id}>
             <Link
-              href={`/catalog/${p.slug}`}
+              href={`/${title == "Каталог" ? "catalog" : "stm-catalog"}/${p.slug}`}
               className="catalog-products__link"
               aria-label={p.name}
             >
