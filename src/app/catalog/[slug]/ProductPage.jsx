@@ -51,7 +51,7 @@ export default function ProductPage({ product, cert, related = [] }) {
         <header className="product-page__header">
           <div className="product-page__media">
             <img src={product.image} alt={product.name} />
-            {product.purpose && <span className="product-page__purpose">{product.purpose}</span>}
+            {/* {product.purpose && <span className="product-page__purpose">{product.purpose}</span>} */}
           </div>
 
           <div className="product-page__info">
